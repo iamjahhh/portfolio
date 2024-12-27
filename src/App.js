@@ -11,12 +11,12 @@ function CardComponent() {
     elements.forEach((el, index) => {
       setTimeout(() => {
         el.classList.add('fade-in');
-      }, index * 200); 
+      }, index * 200);
     });
   }, []);
 
   return (
-    <div className="d-flex flex-column align-items-center" style={{ backgroundColor: "white", marginTop: "30px" }}>
+    <div className="d-flex flex-column align-items-center" style={{ backgroundColor: "white", marginTop: "30px", marginBottom: "30px" }}>
       <div className="animate" style={{ width: "90%", maxWidth: "60rem" }}>
         <div className="card-body">
           <div className="d-flex flex-md-row">
@@ -153,6 +153,31 @@ function CardComponent() {
                 <i className="fab fa-github tech-logo" title="GitHub"></i>
                 <span>GitHub</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="animate d-flex flex-column flex-sm-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "15px" }}>
+        <div className="card me-md-3 mb-3 mb-md-0" style={{ flex: "1 1 30%", maxWidth: "100%" }}>
+          <div className="card-body">
+            <h4 className="mb-3"><i className="fa-brands fa-connectdevelop"></i><strong>&nbsp;&nbsp;Socials</strong></h4>
+            <a href="https://github.com/iamjahhh" target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark mb-2 w-100">
+              <i className="bi bi-github"></i>&nbsp;&nbsp;Github
+            </a>
+            <a href="https://facebook.com/jbbb.iii" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary mb-2 w-100">
+              <i className="bi bi-facebook"></i>&nbsp;&nbsp;Facebook
+            </a>
+            <a href="https://instagram.com/jbbb.iii" target="_blank" rel="noopener noreferrer" className="btn btn-outline-danger w-100">
+              <i className="bi bi-instagram"></i>&nbsp;&nbsp;Instagram
+            </a>
+          </div>
+        </div>
+
+        <div className="card" style={{ flex: "1 1 70%", height: "auto" }}>
+          <div className="card-body">
+            <h4 className="mb-3"><i className="fa-solid fa-project-diagram"></i><strong>&nbsp;&nbsp;Projects</strong></h4>
+            <div className="d-flex flex-wrap">
             </div>
           </div>
         </div>
