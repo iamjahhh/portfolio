@@ -50,8 +50,7 @@ body {
   left: 50%;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
-  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle, rgba(232, 228, 228, 0.399) 0%, rgba(0, 0, 0, 0) 70%);
   transition: transform 0.5s;
 }
 
@@ -191,11 +190,6 @@ body {
 .dark-mode .btn-outline-dark {
   color: #ffffff;
   border-color: #ffffff;
-}
-
-.dark-mode .btn-outline-dark:hover {
-  background-color: #ffffff;
-  color: #1a1a1a;
 }
 
 /* Add these new rules */
@@ -358,34 +352,6 @@ input:checked + .slider:before {
   }
 }
 
-.btn-outline-dark i,
-.btn-outline-primary i,
-.btn-outline-success i,
-.btn-outline-danger i {
-  transition: color 0.3s ease;
-}
-
-.btn-outline-dark:hover i {
-  color: #fff !important;
-}
-
-.btn-outline-primary:hover i {
-  color: #fff !important;
-}
-
-.btn-outline-success:hover i {
-  color: #fff !important;
-}
-
-.btn-outline-danger:hover i {
-  color: #fff !important;
-}
-
-/* Dark mode button icon fixes */
-.dark-mode .btn-outline-dark:hover i {
-  color: #000 !important;
-}
-
 .dark-mode .btn-outline-primary:hover i,
 .dark-mode .btn-outline-success:hover i,
 .dark-mode .btn-outline-danger:hover i {
@@ -426,10 +392,6 @@ input:checked + .slider:before {
 
 .dark-mode .btn-outline-dark i {
   color: #fff;
-}
-
-.dark-mode .btn-outline-dark:hover i {
-  color: #000 !important;
 }
 
 /* Particles Background */
@@ -524,35 +486,7 @@ body, html, #root {
 }
 
 .tech-card:hover .tech-logo,
-.btn:hover i,
 h4:hover i {
   transform: rotate(360deg) scale(1.2);
-}
-
-/* Credits Section Styles */
-.credits-section {
-  width: 100%;
-  max-width: 60rem;
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.credits-section i {
-  font-size: 1.2rem;
-  margin: 0 3px;
-  transition: transform 0.3s ease;
-}
-
-.credits-section i:hover {
-  transform: scale(1.2) rotate(10deg);
-}
-
-.dark-mode .credits-section {
-  border-top-color: rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .text-muted {
-  color: rgba(255, 255, 255, 0.6) !important;
 }
 
