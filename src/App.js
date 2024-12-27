@@ -183,6 +183,20 @@ function CardComponent() {
         </div>
       </div>
 
+      <div className="animate d-flex flex-column flex-md-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "10px" }}>
+        <div className="card me-md-3 mb-3 mb-md-0" style={{ flex: "1 1 100%", maxWidth: "100%" }}>
+          <div className="card-body">
+            <h4 className="mb-3"><i className="fa-solid fa-certificate"></i><strong>&nbsp;&nbsp;About</strong></h4>
+            <p style={{ color: "#2e2e2e" }}>
+              Hello! I’m <strong>John Benedict Badilla</strong> (You can call me <strong>Jah</strong>) from Bulacan, Philippines. I am currently <strong><i>18 years old</i></strong> pursuing
+              <strong> Bachelor of Science in Computer Science</strong> at <strong>Quezon City University</strong>, where I am in my freshman year.
+              <br></br><br></br>
+              As a <strong>full-stack software and web developer</strong>, I am passionate about developing user-centric solutions that improve services and enhance digital experiences.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }
