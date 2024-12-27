@@ -5,17 +5,19 @@ const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
   const getInitialTheme = () => {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme === 'dark';
+    if (!savedTheme) {
+      return true;
     }
-    
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return savedTheme === 'dark';
   };
 
   const [darkMode, setDarkMode] = useState(getInitialTheme);
 
   useEffect(() => {
-    // Add transition class before changing theme
+    if (!localStorage.getItem('theme')) {
+      localStorage.setItem('theme', 'dark');
+    }
+
     document.body.classList.add('theme-transitioning');
     
     localStorage.setItem('theme', darkMode ? 'dark' : 'light');

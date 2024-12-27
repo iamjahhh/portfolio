@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "./App.css";
-import logo from "./assets/jah.jpg";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import "./App.css";
+import ParticlesBackground from './components/ParticlesBackground';
+
 import { ThemeProvider, useTheme } from './ThemeContext';
+import React, { useEffect } from 'react';
+
+import useDeviceDetection from './Device';
+import logo from "./assets/jah.jpg";
 
 function ThemeToggle() {
   const { darkMode, setDarkMode } = useTheme();
+
   return (
     <div className="theme-toggle-wrapper">
       <label className="theme-switch">
@@ -28,9 +33,7 @@ function ThemeToggle() {
 
 function CardContent() {
   const { darkMode } = useTheme();
-  const [loading, setLoading] = useState(true);
-
-  // Remove the useEffect for dark mode class toggling since it's handled in ThemeContext
+  const device = useDeviceDetection();
 
   useEffect(() => {
     const elements = document.querySelectorAll('.animate');
@@ -39,16 +42,14 @@ function CardContent() {
         el.classList.add('fade-in');
       }, index * 200);
     });
-
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
   }, []);
 
   return (
     <div className={`app-container ${darkMode ? 'dark-mode' : ''}`}>
-      <div className="d-flex flex-column align-items-center" style={{ marginTop: "30px", marginBottom: "30px" }}>
-        <div className="animate position-relative" style={{ width: "90%", maxWidth: "60rem" }}>
+      <ParticlesBackground darkMode={darkMode} />
+      <div className="d-flex flex-column align-items-center" style={{ marginTop: "40px", marginBottom: "30px" }}>
+
+        <div className="animate snapInfo position-relative">
           <ThemeToggle />
           <div className="card-body">
             <div className="d-flex flex-md-row">
@@ -64,20 +65,37 @@ function CardContent() {
           </div>
         </div>
 
-        <div className="animate d-flex flex-column flex-sm-row align-items-center" style={{ maxWidth: "60rem", width: "90%", marginTop: "20px", marginBottom: "10px" }}>
-          <button type="button" className="btn btn-outline-dark me-0 me-sm-2 mb-2 mb-sm-0 w-100">
-            <i className="bi bi-briefcase-fill"></i>&nbsp;&nbsp;Contact
-          </button>
-          <button type="button" className="btn btn-outline-primary me-0 me-sm-2 mb-2 mb-sm-0 w-100">
-            <i className="bi bi-collection-fill"></i>&nbsp;&nbsp;Projects
-          </button>
-          <button type="button" className="btn btn-outline-success me-0 me-sm-2 w-100">
-            <i className="fa-solid fa-trophy"></i>&nbsp;&nbsp;Certificates
-          </button>
-        </div>
+        <div className="animate mainButtons d-flex flex-column flex-sm-row align-items-center">
+
+          {device === "Phone" ? (
+            <>
+              <button type="button" className="btn btn-outline-dark me-0 me-sm-2 mb-2 mb-sm-0 w-100">
+                <i className="bi bi-briefcase-fill"></i>&nbsp;&nbsp;Contact
+              </button>
+              <button type="button" className="btn btn-outline-primary me-0 me-sm-2 mb-2 mb-sm-0 w-100">
+                <i className="bi bi-collection-fill"></i>&nbsp;&nbsp;Projects
+              </button>
+              <button type="button" className="btn btn-outline-success me-0 me-sm-2 w-100">
+                <i className="fa-solid fa-trophy"></i>&nbsp;&nbsp;Certificates
+              </button>
+            </>
+          ) : (
+            <>
+              <button type="button" className="btn btn-outline-dark me-2 w-100">
+                <i className="bi bi-briefcase-fill"></i>&nbsp;&nbsp;Contact
+              </button>
+              <button type="button" className="btn btn-outline-primary me-2 w-100">
+                <i className="bi bi-collection-fill"></i>&nbsp;&nbsp;Projects
+              </button>
+              <button type="button" className="btn btn-outline-success w-100">
+                <i className="fa-solid fa-trophy"></i>&nbsp;&nbsp;Certificates
+              </button>
+            </>
+          )}
+        </div >
 
         <div className="animate d-flex flex-column flex-md-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "10px" }}>
-          <div className="card me-md-3 mb-md-0" style={{ flex: "1 1 50%", maxWidth: "100%" }}>
+          <div className="card me-md-3 mb-3 mb-md-0" style={{ flex: "1 1 50%", maxWidth: "100%" }}>
             <div className="card-body">
               <h4 className="mb-3"><i className="fa-solid fa-briefcase"></i><strong>&nbsp;&nbsp;About</strong></h4>
               <p style={{ color: "#2e2e2e" }}>
@@ -89,7 +107,7 @@ function CardContent() {
             </div>
           </div>
 
-          <div className="card" style={{ marginRight: "8px", flex: "1 1 50%", height: "auto" }}>
+          <div className="card" style={{ flex: "1 1 50%", height: "auto" }}>
             <div className="card-body">
               <h4 className="mb-3"><i className="fa-solid fa-code"></i><strong>&nbsp;&nbsp;Tech Stack</strong></h4>
               <div className="d-flex flex-wrap">
@@ -206,7 +224,7 @@ function CardContent() {
             </div>
           </div>
 
-          <div className="card" style={{ marginRight: "8px", flex: "1 1 70%", height: "auto" }}>
+          <div className="card" style={{ flex: "1 1 70%", height: "auto" }}>
             <div className="card-body">
               <h4 className="mb-3"><i className="fa-solid fa-project-diagram"></i><strong>&nbsp;&nbsp;Projects</strong></h4>
               <div className="d-flex flex-wrap">
@@ -216,7 +234,7 @@ function CardContent() {
         </div>
 
         <div className="animate d-flex flex-column flex-md-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "15px" }}>
-          <div className="card" style={{ marginRight: "8px", flex: "1 1 70%", height: "auto" }}>
+          <div className="card" style={{ flex: "1 1 70%", height: "auto" }}>
             <div className="card-body">
               <h4 className="mb-3"><i className="fa-solid fa-trophy"></i><strong>&nbsp;&nbsp;Certificates</strong></h4>
               <div className="d-flex flex-wrap">
@@ -225,8 +243,8 @@ function CardContent() {
           </div>
         </div>
 
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 
