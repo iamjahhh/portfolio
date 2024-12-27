@@ -529,3 +529,30 @@ h4:hover i {
   transform: rotate(360deg) scale(1.2);
 }
 
+/* Credits Section Styles */
+.credits-section {
+  width: 100%;
+  max-width: 60rem;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.credits-section i {
+  font-size: 1.2rem;
+  margin: 0 3px;
+  transition: transform 0.3s ease;
+}
+
+.credits-section i:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.dark-mode .credits-section {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+

@@ -243,8 +243,20 @@ function CardContent() {
           </div>
         </div>
 
-      </div >
-    </div >
+        <div className="credits-section">
+          <p className="text-center mt-4 mb-1">
+            Made with&nbsp;
+            <i className="fab fa-react" title="React.js"></i>&nbsp;
+            <i className="fab fa-bootstrap" title="Bootstrap 5"></i>&nbsp;
+            <i className="fab fa-font-awesome" title="Font Awesome"></i>&nbsp;
+          </p>
+          <p className="text-center text-muted small">
+            © 2024 John Benedict Badilla. All rights reserved.
+          </p>
+        </div>
+
+      </div>
+    </div>
   );
 }
 
