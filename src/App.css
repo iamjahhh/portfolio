@@ -43,6 +43,7 @@ body {
 
 .tech-logo {
   font-size: 1rem;
+  background-color: transparent !important;
 }
 
 .tech-card {
@@ -50,14 +51,47 @@ body {
   align-items: center;
   margin: 5px;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: transparent;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .tech-card span {
   margin-left: 10px;
   font-size: 1rem;
+}
+
+.tech-card img {
+  background-color: transparent !important;
+}
+
+.cert-card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cert-card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black; /* Ensure controls are visible */
+}
+
+.custom-carousel-control {
+  width: 5%;
 }
 
 @media (max-width: 768px) {
@@ -76,6 +110,14 @@ body {
   #desc {
     font-size: 15px;
   }
+
+  .cert-card {
+    width: 100px;
+  }
+
+  .cert-card .card-body {
+    height: 100px;
+  }
 }
 
 .animate {
@@ -87,4 +129,338 @@ body {
 .fade-in {
   opacity: 1;
   transform: translateY(0);
+}
+
+.app-container {
+  transition: all 0.3s ease;
+}
+
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark-mode .card {
+  background-color: #1a1a1a;
+  border-color: #404040;
+}
+
+.dark-mode .card-title,
+.dark-mode .card-subtitle,
+.dark-mode .card-text,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode p {
+  color: #ffffff !important;
+}
+
+.dark-mode .tech-card {
+  background-color: #1a1a1a;
+  border-color: #404040;
+}
+
+.dark-mode .tech-card img,
+.dark-mode .tech-logo,
+.dark-mode .tech-card span {
+  background-color: transparent !important;
+}
+
+.dark-mode .btn-outline-dark {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.dark-mode .btn-outline-dark:hover {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Add these new rules */
+.dark-mode *, 
+.dark-mode html, 
+.dark-mode body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Updated dark mode styles with higher specificity */
+html.dark-mode,
+body.dark-mode,
+.dark-mode #root,
+.dark-mode .app-container {
+  background-color: #1a1a1a !important;
+  color: #ffffff;
+}
+
+.dark-mode * {
+  background-color: inherit;
+}
+
+/* Reset specific component backgrounds */
+.dark-mode .card,
+.dark-mode .tech-card {
+  background-color: #1a1a1a !important;
+}
+
+/* Theme Toggle Switch Styles */
+.theme-toggle-wrapper {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  z-index: 1000;
+  background: transparent !important;
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-wrapper {
+    top: -35px;
+    right: 0;
+  }
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 36px;
+  background: transparent !important;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  transition: .4s;
+  border-radius: 34px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 28px;
+  width: 28px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider .fa-sun,
+.slider .fa-moon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent !important;
+  font-size: 14px;
+}
+
+.slider .fa-sun {
+  left: 8px;
+  color: #f39c12;
+}
+
+.slider .fa-moon {
+  right: 8px;
+  color: #4a90e2;
+}
+
+input:checked + .slider {
+  background-color: rgba(44, 62, 80, 0.9);
+}
+
+input:checked + .slider:before {
+  transform: translateX(28px);
+}
+
+/* Modern Minimal Carousel Controls */
+.carousel {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5) !important;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.carousel:hover .carousel-control-prev { 
+  opacity: 1;
+  left: 20px;
+}
+
+.carousel:hover .carousel-control-next {
+  opacity: 1;
+  right: 20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+  background-size: 100%;
+  background-image: none;
+  display: inline-block;
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+}
+
+.carousel-control-prev-icon::before {
+  transform: rotate(-135deg);
+  margin-left: 5px;
+}
+
+.carousel-control-next-icon::before {
+  transform: rotate(45deg);
+  margin-right: 5px;
+}
+
+/* Dark mode carousel adjustments */
+.dark-mode .carousel-control-prev,
+.dark-mode .carousel-control-next {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark-mode .carousel-control-prev:hover,
+.dark-mode .carousel-control-next:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .animate:first-child {
+    margin-top: 45px !important;
+  }
+  
+  .theme-toggle-wrapper {
+    top: -60px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 35px;
+    height: 35px;
+  }
+
+  .carousel:hover .carousel-control-prev { 
+    left: 10px;
+  }
+
+  .carousel:hover .carousel-control-next {
+    right: 10px;
+  }
+}
+
+/* Modern Carousel Styles */
+.carousel {
+  border-radius: 15px;
+  overflow: hidden;
+  background: transparent !important;
+}
+
+.carousel-inner {
+  border-radius: 15px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 45px;
+  height: 45px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  margin: 0 15px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+  opacity: 1;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  filter: none;
+}
+
+/* Dark mode carousel adjustments */
+.dark-mode .carousel-control-prev,
+.dark-mode .carousel-control-next {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode .carousel-control-prev:hover,
+.dark-mode .carousel-control-next:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark-mode .carousel-control-prev-icon,
+.dark-mode .carousel-control-next-icon {
+  filter: invert(1) !important;
+}
+
+/* Dark mode carousel controls */
+.dark-mode .carousel-control-prev-icon,
+.dark-mode .carousel-control-next-icon {
+  background-color: #ffffff;
+}
+
+.dark-mode .carousel-control-prev,
+.dark-mode .carousel-control-next {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Dark mode for tech stack logos */
+.dark-mode .tech-logo {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+.dark-mode .slider {
+  background-color: rgba(44, 62, 80, 0.8);
 }
