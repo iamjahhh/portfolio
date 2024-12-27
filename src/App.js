@@ -49,7 +49,7 @@ function CardComponent() {
           <div className="card-body">
             <h4 className="mb-3"><i className="fa-solid fa-briefcase"></i><strong>&nbsp;&nbsp;About</strong></h4>
             <p style={{ color: "#2e2e2e" }}>
-              Hello! I’m <strong>John Benedict Badilla</strong> from Bulacan, Philippines. I am currently pursuing
+              Hello! I’m <strong>John Benedict Badilla</strong> (You can call me <strong>Jah</strong>) from Bulacan, Philippines. I am currently <strong><i>18 years old</i></strong> pursuing
               <strong> Bachelor of Science in Computer Science</strong> at <strong>Quezon City University</strong>, where I am in my freshman year.
               <br></br><br></br>
               As a <strong>full-stack software and web developer</strong>, I am passionate about developing user-centric solutions that improve services and enhance digital experiences.
@@ -57,7 +57,6 @@ function CardComponent() {
           </div>
         </div>
 
-        {/* Tech Stack Card */}
         <div className="card" style={{ flex: "1 1 auto", height: "auto" }}>
           <div className="card-body">
             <h4 className="mb-3"><i className="fa-solid fa-code"></i><strong>&nbsp;&nbsp;Tech Stack</strong></h4>
