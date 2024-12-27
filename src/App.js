@@ -247,6 +247,8 @@ function CardContent() {
           <p className="text-center mt-4 mb-1">
             Made with&nbsp;
             <i className="fab fa-react" title="React.js"></i>&nbsp;
+            <i className="fab fa-html5" title="HTML 5"></i>&nbsp;
+            <i className="fab fa-css" title="CSS 3"></i>&nbsp;
             <i className="fab fa-bootstrap" title="Bootstrap 5"></i>&nbsp;
             <i className="fab fa-font-awesome" title="Font Awesome"></i>&nbsp;
           </p>
