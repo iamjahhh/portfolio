@@ -1,0 +1,90 @@
+body {
+  padding: 10px;
+}
+
+*, html, body {
+  background-color: white;
+}
+
+#logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+}
+
+.card-title {
+  color: black;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+#location {
+  font-size: 17px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  color: black;
+}
+
+#desc {
+  margin-top: 10px;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.btn {
+  font-weight: 500;
+}
+
+.aboutDesc {
+  color: darkblue;
+}
+
+.tech-logo {
+  font-size: 1rem;
+}
+
+.tech-card {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.tech-card span {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 20px;
+  }
+
+  #cardTitle2 {
+    font-size: 16px;
+  }
+
+  #location {
+    font-size: 13px;
+  }
+
+  #desc {
+    font-size: 15px;
+  }
+}
+
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
