@@ -245,7 +245,7 @@ function CardContent() {
 
         <div className="credits-section mt-2">
           <p className="text-center mt-5 mb-1">
-            Made with&nbsp;
+            Programmed with&nbsp;
             <i className="fab fa-react" title="React.js"></i>&nbsp;
             <i className="fab fa-html5" title="HTML 5"></i>&nbsp;
             <i className="fab fa-css3" title="CSS 3"></i>&nbsp;
