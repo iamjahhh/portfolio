@@ -3,12 +3,15 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "./App.css";
+
+import GetTechImage from './components/TechImage';
 import ParticlesBackground from './components/ParticlesBackground';
 
 import { ThemeProvider, useTheme } from './ThemeContext';
 import React, { useEffect } from 'react';
 
 import useDeviceDetection from './Device';
+import shop from "./assets/shop.png";
 import logo from "./assets/jah.jpg";
 
 function ThemeToggle() {
@@ -112,95 +115,59 @@ function CardContent() {
               <h4 className="mb-3"><i className="fa-solid fa-code"></i><strong>&nbsp;&nbsp;Tech Stack</strong></h4>
               <div className="d-flex flex-wrap">
                 <div className="tech-card">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
-                    alt="JavaScript Logo"
-                    className="tech-logo"
-                    title="JavaScript"
-                    style={{ width: "15px", height: "15px" }} />
+                  {GetTechImage({ logo: 'javascript' })}
                   <span>JavaScript</span>
                 </div>
                 <div className="tech-card">
-                  <img src="https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png"
-                    alt="TypeScript Logo"
-                    className="tech-logo"
-                    title="TypeScript"
-                    style={{ width: "15px", height: "15px" }} />
+                  {GetTechImage({ logo: 'typescript' })}
                   <span>TypeScript</span>
                 </div>
                 <div className="tech-card">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg"
-                    alt="C++ Logo"
-                    className="tech-logo"
-                    title="C++"
-                    style={{ width: "15px", height: "15px" }} />
+                  {GetTechImage({ logo: 'c++' })}
                   <span>C++</span>
                 </div>
                 <div className="tech-card">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png"
-                    alt="C# Logo"
-                    className="tech-logo"
-                    title="C#"
-                    style={{ width: "27px", height: "27px" }} />
+                  {GetTechImage({ logo: 'c#' })}
                   <span>C#</span>
                 </div>
                 <div className="tech-card">
-                  <i className="fab fa-rust tech-logo" title="Rust"></i>
+                  {GetTechImage({ logo: 'rust' })}
                   <span>Rust</span>
                 </div>
                 <div className="tech-card">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
-                    alt="React Logo"
-                    className="tech-logo"
-                    title="React"
-                    style={{ width: "15px", height: "15px" }} />
+                  {GetTechImage({ logo: 'react' })}
                   <span>React</span>
                 </div>
                 <div className="tech-card">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg"
-                    alt="Node.js Logo"
-                    className="tech-logo"
-                    title="Node.js"
-                    style={{ width: "15px", height: "15px" }} />
+                  {GetTechImage({ logo: 'node.js' })}
                   <span>Node.js</span>
                 </div>
                 <div className="tech-card">
-                  <i className="fas fa-database tech-logo" title="MySQL"></i>
+                  {GetTechImage({ logo: 'database' })}
                   <span>MySQL</span>
                 </div>
                 <div className="tech-card">
-                  <i className="fas fa-database tech-logo" title="SQLite3"></i>
+                  {GetTechImage({ logo: 'database' })}
                   <span>SQLite3</span>
                 </div>
                 <div className="tech-card">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"
-                    alt="HTML Logo"
-                    className="tech-logo"
-                    title="HTML"
-                    style={{ width: "15px", height: "15px" }} />
+                  {GetTechImage({ logo: 'html' })}
                   <span>HTML</span>
                 </div>
                 <div className="tech-card">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg"
-                    alt="CSS Logo"
-                    className="tech-logo"
-                    title="CSS"
-                    style={{ width: "15px", height: "15px" }} />
+                  {GetTechImage({ logo: 'css' })}
                   <span>CSS</span>
                 </div>
                 <div className="tech-card">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg"
-                    alt="Bootstrap Logo"
-                    className="tech-logo"
-                    title="Bootstrap"
-                    style={{ width: "15px", height: "15px" }} />
+                  {GetTechImage({ logo: 'bootstrap' })}
                   <span>Bootstrap</span>
                 </div>
                 <div className="tech-card">
-                  <i className="fab fa-git tech-logo" title="Git"></i>
+                  {GetTechImage({ logo: 'git' })}
                   <span>Git</span>
                 </div>
                 <div className="tech-card">
-                  <i className="fab fa-github tech-logo" title="GitHub"></i>
+                  {GetTechImage({ logo: 'github' })}
                   <span>GitHub</span>
                 </div>
               </div>
@@ -226,8 +193,60 @@ function CardContent() {
 
           <div className="card" style={{ flex: "1 1 70%", height: "auto" }}>
             <div className="card-body">
-              <h4 className="mb-3"><i className="fa-solid fa-project-diagram"></i><strong>&nbsp;&nbsp;Projects</strong></h4>
-              <div className="d-flex flex-wrap">
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h4 className="mb-0">
+                  <i className="fa-solid fa-project-diagram"></i>
+                  <strong>&nbsp;&nbsp;Projects</strong>
+                </h4>
+                <button className="btn btn-link text-decoration-none">
+                  See All <i className="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div id="projectsCarousel" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <div className="d-flex gap-3 justify-content-center">
+                      <div className="project-card" onClick={() => window.open('https://jah-shop.vercel.app', '_blank')}>
+                        <div className="project-image">
+                          <img src={shop} alt="Jah Shop E-commerce" className="img-fluid" />
+                          <div className="project-overlay">
+                            <span className="view-project">Visit Site</span>
+                          </div>
+                        </div>
+                        <div className="project-info">
+                          <h5>E-commerce website</h5>
+                          <p styles={{ color: "orange" }} className="mb-2">[Under Development]</p>
+                          <div className="tech-tags tech-tags-small">
+                            <div className="tech-card tech-card-small">
+                              {GetTechImage({ logo: 'react', size: "15px" })}
+                              <span style={{ fontSize: "15px" }}>React</span>
+                            </div>
+                            <div className="tech-card tech-card-small">
+                              {GetTechImage({ logo: 'bootstrap', size: "15px" })}
+                              <span style={{ fontSize: "15px" }}>Bootstrap</span>
+                            </div>
+                            <div className="tech-card tech-card-small">
+                              {GetTechImage({ logo: 'html', size: "15px" })}
+                              <span style={{ fontSize: "15px" }}>HTML5</span>
+                            </div>
+                            <div className="tech-card tech-card-small">
+                              {GetTechImage({ logo: 'css', size: "15px" })}
+                              <span style={{ fontSize: "15px" }}>CSS3</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span className="visually-hidden">Next</span>
+                </button>
               </div>
             </div>
           </div>
