@@ -3,10 +3,10 @@ import "./App.css";
 import GetTechImage from './components/TechImage';
 import ParticlesBackground from './components/ParticlesBackground';
 
-import { ThemeProvider, useTheme } from './ThemeContext';
+import { ThemeProvider, useTheme } from './components/ThemeContext';
 import React, { useEffect } from 'react';
 
-import useDeviceDetection from './Device';
+import useDeviceDetection from './components/Device';
 import logo from "./assets/jah.jpg";
 
 function ThemeToggle() {
