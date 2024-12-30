@@ -1,4 +1,7 @@
-This is my first React-based web application. It utilizes Bootstrap, HTML, CSS, and JavaScript to create a modern user interface.
+# Portfolio
+
+## Introduction
+This is my first React-based web application, and it also serves as my personal portfolio. It uses common web technologies like Bootstrap, HTML, CSS, and JavaScript for a modern and responsive interface.
 
 ## Credits
 
