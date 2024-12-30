@@ -1,7 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import "bootstrap-icons/font/bootstrap-icons.css";
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "./App.css";
 
 import GetTechImage from './components/TechImage';
@@ -11,7 +7,6 @@ import { ThemeProvider, useTheme } from './ThemeContext';
 import React, { useEffect } from 'react';
 
 import useDeviceDetection from './Device';
-import shop from "./assets/shop.png";
 import logo from "./assets/jah.jpg";
 
 function ThemeToggle() {
@@ -201,53 +196,7 @@ function CardContent() {
                 <button className="btn btn-link text-decoration-none">
                   See All <i className="fas fa-arrow-right"></i>
                 </button>
-              </div>
-              <div id="projectsCarousel" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-                <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <div className="d-flex gap-3 justify-content-center">
-                      <div className="project-card" onClick={() => window.open('https://jah-shop.vercel.app', '_blank')}>
-                        <div className="project-image">
-                          <img src={shop} alt="Jah Shop E-commerce" className="img-fluid" />
-                          <div className="project-overlay">
-                            <span className="view-project">Visit Site</span>
-                          </div>
-                        </div>
-                        <div className="project-info">
-                          <h5>E-commerce website</h5>
-                          <p styles={{ color: "orange" }} className="mb-2">[Under Development]</p>
-                          <div className="tech-tags tech-tags-small">
-                            <div className="tech-card tech-card-small">
-                              {GetTechImage({ logo: 'react', size: "15px" })}
-                              <span style={{ fontSize: "15px" }}>React</span>
-                            </div>
-                            <div className="tech-card tech-card-small">
-                              {GetTechImage({ logo: 'bootstrap', size: "15px" })}
-                              <span style={{ fontSize: "15px" }}>Bootstrap</span>
-                            </div>
-                            <div className="tech-card tech-card-small">
-                              {GetTechImage({ logo: 'html', size: "15px" })}
-                              <span style={{ fontSize: "15px" }}>HTML5</span>
-                            </div>
-                            <div className="tech-card tech-card-small">
-                              {GetTechImage({ logo: 'css', size: "15px" })}
-                              <span style={{ fontSize: "15px" }}>CSS3</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
-                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
-                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span className="visually-hidden">Next</span>
-                </button>
-              </div>
             </div>
           </div>
         </div>
