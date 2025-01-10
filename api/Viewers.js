@@ -11,7 +11,17 @@ export default async function handler(req, res) {
             console.error("Error updating viewers:", error);
             res.status(500).json({ error: "Failed to update viewers" });
         }
-    } else {
+    } 
+    else if (req.method === "GET") {
+        try {
+            const viewers = await redis.get("viewers");
+            res.status(200).json({ viewers: parseInt(viewers) || 0 });
+        } catch (error) {
+            console.error("Error fetching viewers:", error);
+            res.status(500).json({ error: "Failed to fetch viewers" });
+        }
+    }
+    else {
         res.status(405).json({ message: "Method Not Allowed" });
     }
 }

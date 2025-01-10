@@ -34,21 +34,25 @@ function CardContent() {
   const { darkMode } = useTheme();
   const device = useDeviceDetection();
 
-  const [viewers, setViewers] = useState(0); // State to store the viewer count
+  const [viewers, setViewers] = useState(0);
 
   useEffect(() => {
     async function fetchViewers() {
       try {
-        const response = await fetch("/api/Viewers"); 
-        const data = await response.json(); 
-        setViewers(data.viewers); 
+        const response = await fetch("/api/Viewers");
+        const data = await response.json();
+        setViewers(data.viewers);
+        
+        await fetch("/api/Viewers", {
+          method: "POST"
+        });
       } catch (error) {
-        console.error("Failed to fetch viewers:", error);
+        console.error("Failed to handle viewers:", error);
       }
     }
 
-    fetchViewers(); 
-  }, []); 
+    fetchViewers();
+  }, []);
 
   useEffect(() => {
     const elements = document.querySelectorAll('.animate');
