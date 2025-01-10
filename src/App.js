@@ -1,4 +1,5 @@
 import "./App.css";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import GetTechImage from './components/TechImage';
 import ParticlesBackground from './components/ParticlesBackground';
@@ -221,7 +222,7 @@ function CardContent() {
             <i className="fab fa-font-awesome" title="Font Awesome"></i>&nbsp;
           </p>
           <p className="text-center text-muted small">
-            © 2024 John Benedict Badilla. All rights reserved.
+            © 2025 John Benedict Badilla. All rights reserved.
           </p>
         </div>
 
