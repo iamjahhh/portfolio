@@ -669,3 +669,70 @@ h4:hover i {
 }
 
 .tech-tags-small {  gap: 0.1rem;}.tech-tag {  padding: 0.2rem 0.8rem;  border-radius: 15px;  font-size: 0.8rem;  background: rgba(0, 0, 0, 0.1);  backdrop-filter: blur(4px);}.dark-mode .tech-tag {  background: rgba(255, 255, 255, 0.1);}.dark-mode .project-card {  background: rgba(255, 255, 255, 0.05);}
+
+/* ...existing styles... */
+
+.viewer-card {
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2196f3;
+  background: rgba(33, 150, 243, 0.1) !important;
+  border-color: rgba(33, 150, 243, 0.2);
+}
+
+.viewer-card i {
+  font-size: 1.2rem;
+  color: #2196f3;
+}
+
+.dark-mode .viewer-card {
+  color: #64b5f6;
+  background: rgba(33, 150, 243, 0.15) !important;
+  border-color: rgba(33, 150, 243, 0.3);
+}
+
+.dark-mode .viewer-card i {
+  color: #64b5f6;
+}
+
+/* ...rest of existing styles... */
+
+/* ...existing styles... */
+
+.like-card {
+  color: #e91e63;
+  background: rgba(233, 30, 99, 0.1) !important;
+  border-color: rgba(233, 30, 99, 0.2);
+  transition: all 0.3s ease;
+}
+
+.like-card:not(.liked):hover {
+  transform: scale(1.05);
+  background: rgba(233, 30, 99, 0.15) !important;
+}
+
+.like-card i {
+  color: #e91e63;
+}
+
+.like-card.liked {
+  background: rgba(233, 30, 99, 0.2) !important;
+  cursor: default;
+}
+
+.dark-mode .like-card {
+  color: #f48fb1;
+  background: rgba(233, 30, 99, 0.15) !important;
+  border-color: rgba(233, 30, 99, 0.3);
+}
+
+.dark-mode .like-card i {
+  color: #f48fb1;
+}
+
+.dark-mode .like-card.liked {
+  background: rgba(233, 30, 99, 0.25) !important;
+}
+
+/* ...rest of existing styles... */

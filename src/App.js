@@ -35,8 +35,27 @@ function CardContent() {
   const device = useDeviceDetection();
 
   const [viewers, setViewers] = useState(0);
+  const [likes, setLikes] = useState(0);
+  const [hasLiked, setHasLiked] = useState(false);
 
   useEffect(() => {
+    // Check if user has already liked
+    const liked = localStorage.getItem('hasLiked') === 'true';
+    setHasLiked(liked);
+
+    // Fetch initial likes count
+    async function fetchLikes() {
+      try {
+        const response = await fetch("/api/Likes");
+        const data = await response.json();
+        setLikes(data.likes);
+      } catch (error) {
+        console.error("Failed to fetch likes:", error);
+      }
+    }
+
+    fetchLikes();
+
     async function fetchViewers() {
       try {
         const response = await fetch("/api/Viewers");
@@ -53,6 +72,22 @@ function CardContent() {
 
     fetchViewers();
   }, []);
+
+  const handleLike = async () => {
+    if (!hasLiked) {
+      try {
+        const response = await fetch("/api/Likes", {
+          method: "POST"
+        });
+        const data = await response.json();
+        setLikes(data.likes);
+        setHasLiked(true);
+        localStorage.setItem('hasLiked', 'true');
+      } catch (error) {
+        console.error("Failed to update likes:", error);
+      }
+    }
+  };
 
   useEffect(() => {
     const elements = document.querySelectorAll('.animate');
@@ -116,9 +151,18 @@ function CardContent() {
         <div className="animate d-flex flex-column flex-md-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "15px" }}>
           <div className="card" style={{ flex: "1 1 100%", height: "auto" }}>
             <div className="card-body">
-              <div className="d-flex flex-wrap justify-content-center align-items-center">
-                <div className="tech-card">
-                  <p>{viewers}</p>
+              <div className="d-flex flex-wrap justify-content-center align-items-center gap-3">
+                <div className="tech-card viewer-card">
+                  <i className="fas fa-eye"></i>
+                  <span className="ms-2">{viewers} visitors</span>
+                </div>
+                <div 
+                  className={`tech-card viewer-card like-card ${hasLiked ? 'liked' : ''}`} 
+                  onClick={handleLike}
+                  style={{ cursor: hasLiked ? 'default' : 'pointer' }}
+                >
+                  <i className="fas fa-heart"></i>
+                  <span className="ms-2">{likes} likes</span>
                 </div>
               </div>
             </div>
