@@ -222,7 +222,7 @@ function CardContent() {
             <i className="fab fa-font-awesome" title="Font Awesome"></i>&nbsp;
           </p>
           <p className="text-center text-muted small">
-            © 2025 John Benedict Badilla. All rights reserved.
+            © {new Date().getFullYear()} John Benedict Badilla. All rights reserved.
           </p>
         </div>
 
