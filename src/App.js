@@ -5,7 +5,7 @@ import GetTechImage from './components/TechImage';
 import ParticlesBackground from './components/ParticlesBackground';
 
 import { ThemeProvider, useTheme } from './components/ThemeContext';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import useDeviceDetection from './components/Device';
 import logo from "./assets/jah.jpg";
@@ -33,6 +33,22 @@ function ThemeToggle() {
 function CardContent() {
   const { darkMode } = useTheme();
   const device = useDeviceDetection();
+
+  const [viewers, setViewers] = useState(0); // State to store the viewer count
+
+  useEffect(() => {
+    async function fetchViewers() {
+      try {
+        const response = await fetch("/api/Viewers"); 
+        const data = await response.json(); 
+        setViewers(data.viewers); 
+      } catch (error) {
+        console.error("Failed to fetch viewers:", error);
+      }
+    }
+
+    fetchViewers(); 
+  }, []); 
 
   useEffect(() => {
     const elements = document.querySelectorAll('.animate');
@@ -91,6 +107,18 @@ function CardContent() {
               </button>
             </>
           )}
+        </div >
+
+        <div className="animate d-flex flex-column flex-md-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "15px" }}>
+          <div className="card" style={{ flex: "1 1 100%", height: "auto" }}>
+            <div className="card-body">
+              <div className="d-flex flex-wrap justify-content-center align-items-center">
+                <div className="tech-card">
+                  <p>{viewers}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div >
 
         <div className="animate d-flex flex-column flex-md-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "10px" }}>
@@ -197,7 +225,7 @@ function CardContent() {
                 <button className="btn btn-link text-decoration-none">
                   See All <i className="fas fa-arrow-right"></i>
                 </button>
-                </div>
+              </div>
             </div>
           </div>
         </div>
