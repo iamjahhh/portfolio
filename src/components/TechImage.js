@@ -101,6 +101,15 @@ const GetTechImage = ({ logo, size = null }) => {
                 <i className="fab fa-github tech-logo" title="GitHub"></i>
             );
         }
+        case 'supabase': {
+            return (
+                <img src="https://supabase.com/dashboard/img/supabase-logo.svg"
+                    alt="Supabase Logo"
+                    className="tech-logo"
+                    title="Supabase"
+                    style={{ width: size == null ? "15px" : size, height: size == null ? "15px" : size }} />
+            );
+        }
         default: {
             return (
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"

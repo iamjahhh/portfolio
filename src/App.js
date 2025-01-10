@@ -39,11 +39,9 @@ function CardContent() {
   const [hasLiked, setHasLiked] = useState(false);
 
   useEffect(() => {
-    // Check if user has already liked
     const liked = localStorage.getItem('hasLiked') === 'true';
     setHasLiked(liked);
 
-    // Fetch initial likes count
     async function fetchLikes() {
       try {
         const response = await fetch("/api/Likes");
@@ -61,7 +59,7 @@ function CardContent() {
         const response = await fetch("/api/Viewers");
         const data = await response.json();
         setViewers(data.viewers);
-        
+
         await fetch("/api/Viewers", {
           method: "POST"
         });
@@ -151,27 +149,6 @@ function CardContent() {
         <div className="animate d-flex flex-column flex-md-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "15px" }}>
           <div className="card" style={{ flex: "1 1 100%", height: "auto" }}>
             <div className="card-body">
-              <div className="d-flex flex-wrap justify-content-center align-items-center gap-3">
-                <div className="tech-card viewer-card">
-                  <i className="fas fa-eye"></i>
-                  <span className="ms-2">{viewers} visitors</span>
-                </div>
-                <div 
-                  className={`tech-card viewer-card like-card ${hasLiked ? 'liked' : ''}`} 
-                  onClick={handleLike}
-                  style={{ cursor: hasLiked ? 'default' : 'pointer' }}
-                >
-                  <i className="fas fa-heart"></i>
-                  <span className="ms-2">{likes} likes</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div >
-
-        <div className="animate d-flex flex-column flex-md-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "10px" }}>
-          <div className="card me-md-3 mb-3 mb-md-0" style={{ flex: "1 1 50%", maxWidth: "100%" }}>
-            <div className="card-body">
               <h4 className="mb-3"><i className="fa-solid fa-briefcase"></i><strong>&nbsp;&nbsp;About</strong></h4>
               <p style={{ color: "#2e2e2e" }}>
                 Hello! I’m <strong>John Benedict Badilla</strong> (You can call me <strong>Jah</strong>) from Bulacan, Philippines. I am currently <strong><i>18 years old</i></strong> pursuing
@@ -181,22 +158,84 @@ function CardContent() {
               </p>
             </div>
           </div>
+        </div >
+
+        <div className="animate d-flex flex-column flex-md-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "10px" }}>
+          <div className="card me-md-3 mb-3 mb-md-0" style={{ flex: "1 1 30%", maxWidth: "100%" }}>
+            <div className="card-body">
+              <h4 className="mb-3">
+                <i className="fa-solid fa-chart-line"></i>
+                <strong>&nbsp;&nbsp;Statistics & Socials</strong>
+              </h4>
+
+              {/* Stats Section */}
+              <div className="card mb-3 stats-inner-card">
+                <div className="card-body">
+                  <div className="d-flex flex-column gap-2">
+                    <div className="tech-card viewer-card">
+                      <i className="fas fa-eye"></i>
+                      <span className="ms-2">{viewers} visitors</span>
+                    </div>
+                    <div
+                      className={`tech-card viewer-card like-card ${hasLiked ? 'liked' : ''}`}
+                      onClick={handleLike}
+                      style={{ cursor: hasLiked ? 'default' : 'pointer' }}
+                    >
+                      <i className="fas fa-heart"></i>
+                      <span className="ms-2">{likes} likes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Socials Section */}
+              <a href="https://github.com/iamjahhh" target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark mb-2 w-100">
+                <i className="bi bi-github"></i>&nbsp;&nbsp;Github
+              </a>
+              <a href="https://facebook.com/jbbb.iii" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary mb-2 w-100">
+                <i className="bi bi-facebook"></i>&nbsp;&nbsp;Facebook
+              </a>
+              <a href="https://instagram.com/jbbb.iii" target="_blank" rel="noopener noreferrer" className="btn btn-outline-danger w-100">
+                <i className="bi bi-instagram"></i>&nbsp;&nbsp;Instagram
+              </a>
+            </div>
+          </div>
 
           <div className="card" style={{ flex: "1 1 50%", height: "auto" }}>
             <div className="card-body">
-              <h4 className="mb-3"><i className="fa-solid fa-code"></i><strong>&nbsp;&nbsp;Tech Stack</strong></h4>
-              <div className="d-flex flex-wrap">
-                <div className="tech-card">
-                  {GetTechImage({ logo: 'javascript' })}
-                  <span>JavaScript</span>
+              <h4 className="mb-3">
+                <i className="fa-solid fa-code"></i>
+                <strong>&nbsp;&nbsp;Tech Stack</strong>
+              </h4>
+
+              <div className="mb-4">
+                <h6 className="text-muted mb-2">Mastered</h6>
+                <div className="d-flex flex-wrap">
+                  <div className="tech-card mastered">
+                    {GetTechImage({ logo: 'javascript' })}
+                    <span>JavaScript</span>
+                  </div>
+                  <div className="tech-card mastered">
+                    {GetTechImage({ logo: 'react' })}
+                    <span>React</span>
+                  </div>
+                  <div className="tech-card mastered">
+                    {GetTechImage({ logo: 'node.js' })}
+                    <span>Node.js</span>
+                  </div>
+                  <div className="tech-card mastered">
+                    {GetTechImage({ logo: 'c++' })}
+                    <span>C++</span>
+                  </div>
                 </div>
+              </div>
+
+              {/* Other Technologies */}
+              <h6 className="text-muted mb-2">Other Technologies</h6>
+              <div className="d-flex flex-wrap">
                 <div className="tech-card">
                   {GetTechImage({ logo: 'typescript' })}
                   <span>TypeScript</span>
-                </div>
-                <div className="tech-card">
-                  {GetTechImage({ logo: 'c++' })}
-                  <span>C++</span>
                 </div>
                 <div className="tech-card">
                   {GetTechImage({ logo: 'c#' })}
@@ -207,12 +246,12 @@ function CardContent() {
                   <span>Rust</span>
                 </div>
                 <div className="tech-card">
-                  {GetTechImage({ logo: 'react' })}
-                  <span>React</span>
+                  {GetTechImage({ logo: 'html' })}
+                  <span>HTML</span>
                 </div>
                 <div className="tech-card">
-                  {GetTechImage({ logo: 'node.js' })}
-                  <span>Node.js</span>
+                  {GetTechImage({ logo: 'css' })}
+                  <span>CSS</span>
                 </div>
                 <div className="tech-card">
                   {GetTechImage({ logo: 'database' })}
@@ -221,14 +260,6 @@ function CardContent() {
                 <div className="tech-card">
                   {GetTechImage({ logo: 'database' })}
                   <span>SQLite3</span>
-                </div>
-                <div className="tech-card">
-                  {GetTechImage({ logo: 'html' })}
-                  <span>HTML</span>
-                </div>
-                <div className="tech-card">
-                  {GetTechImage({ logo: 'css' })}
-                  <span>CSS</span>
                 </div>
                 <div className="tech-card">
                   {GetTechImage({ logo: 'bootstrap' })}
@@ -242,28 +273,17 @@ function CardContent() {
                   {GetTechImage({ logo: 'github' })}
                   <span>GitHub</span>
                 </div>
+                <div className="tech-card">
+                  {GetTechImage({ logo: 'supabase' })}
+                  <span>Supabase</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <div className="animate d-flex flex-column flex-sm-row" style={{ width: "90%", maxWidth: "60rem", marginTop: "15px" }}>
-          <div className="card me-md-3 mb-3 mb-md-0" style={{ flex: "1 1 30%", maxWidth: "100%" }}>
-            <div className="card-body">
-              <h4 className="mb-3"><i className="fa-brands fa-connectdevelop"></i><strong>&nbsp;&nbsp;Socials</strong></h4>
-              <a href="https://github.com/iamjahhh" target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark mb-2 w-100">
-                <i className="bi bi-github"></i>&nbsp;&nbsp;Github
-              </a>
-              <a href="https://facebook.com/jbbb.iii" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary mb-2 w-100">
-                <i className="bi bi-facebook"></i>&nbsp;&nbsp;Facebook
-              </a>
-              <a href="https://instagram.com/jbbb.iii" target="_blank" rel="noopener noreferrer" className="btn btn-outline-danger w-100">
-                <i className="bi bi-instagram"></i>&nbsp;&nbsp;Instagram
-              </a>
-            </div>
-          </div>
-
-          <div className="card" style={{ flex: "1 1 70%", height: "auto" }}>
+          <div className="card" style={{ flex: "1 1 100%", height: "auto" }}>
             <div className="card-body">
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <h4 className="mb-0">
