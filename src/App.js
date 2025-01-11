@@ -8,7 +8,19 @@ import { ThemeProvider, useTheme } from './components/ThemeContext';
 import React, { useEffect, useState } from 'react';
 
 import useDeviceDetection from './components/Device';
+import eduArchive from "./assets/eduarchive.png";
 import logo from "./assets/jah.jpg";
+
+const projects = [
+  {
+    id: 1,
+    title: "EduArchive",
+    description: "Personal portfolio website built with React and Bootstrap",
+    image: eduArchive,
+    tags: ["JavaScript", "Node.js", "React", "Bootstrap", "HTML", "CSS"],
+    link: "https://eduarchive-v2.vercel.app/"
+  }
+];
 
 function ThemeToggle() {
   const { darkMode, setDarkMode } = useTheme();
@@ -96,6 +108,15 @@ function CardContent() {
     });
   }, []);
 
+  const chunkedProjects = () => {
+    const itemsPerSlide = window.innerWidth <= 768 ? 1 : 2; // Force 2 on desktop, 1 on mobile
+    return projects.reduce((acc, curr, i) => {
+      if (i % itemsPerSlide === 0) acc.push([]);
+      acc[acc.length - 1].push(curr);
+      return acc;
+    }, []);
+  };
+
   return (
     <div className={`app-container ${darkMode ? 'dark-mode' : ''}`}>
       <ParticlesBackground darkMode={darkMode} />
@@ -182,7 +203,9 @@ function CardContent() {
                       style={{ cursor: hasLiked ? 'default' : 'pointer' }}
                     >
                       <i className="fas fa-heart"></i>
-                      <span className="ms-2">{likes} likes</span>
+                      <span className="ms-2">
+                        {likes} likes {!hasLiked && '- Tap to like!'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -290,8 +313,48 @@ function CardContent() {
                   <i className="fa-solid fa-project-diagram"></i>
                   <strong>&nbsp;&nbsp;Projects</strong>
                 </h4>
-                <button className="btn btn-link text-decoration-none">
-                  See All <i className="fas fa-arrow-right"></i>
+              </div>
+              
+              <div id="projectsCarousel" className="carousel slide" data-bs-ride="carousel">
+                <div className="carousel-inner">
+                  {chunkedProjects().map((chunk, index) => (
+                    <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                      <div className="d-flex justify-content-center gap-4">
+                        {chunk.map(project => (
+                          <div key={project.id} className="project-card">
+                            <div className="project-image">
+                              <img src={project.image} alt={project.title} />
+                              <div className="project-overlay">
+                                <a href={project.link} className="view-project" target="_blank" rel="noopener noreferrer">
+                                  View Project
+                                </a>
+                              </div>
+                            </div>
+                            <div className="project-info">
+                              <h5>{project.title}</h5>
+                              <p>{project.description}</p>
+                              <div className="tech-tags">
+                                {project.tags.map((tag, i) => (
+                                  <span key={i} className="tech-tag">
+                                    {GetTechImage({ logo: tag.toLowerCase() })}
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span className="visually-hidden">Next</span>
                 </button>
               </div>
             </div>

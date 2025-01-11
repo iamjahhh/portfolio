@@ -498,103 +498,135 @@ h4:hover i {
 
 /* Updated Project Card Styles */
 .project-card {
-  width: 280px;
-  border-radius: 12px;
+  width: 450px;
+  border-radius: 15px;
   overflow: hidden;
   transition: all 0.3s ease;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.95) !important;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  transform-origin: center;
 }
 
-.carousel-item {
-  padding: 1rem;
-}
-
-.dark-mode .project-card {
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .project-image {
   position: relative;
   width: 100%;
-  height: 140px;
+  height: 250px;
   overflow: hidden;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .project-overlay {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .view-project {
-  color: rgb(19, 18, 18);
-  font-size: 0.9rem;
+  color: white !important;
+  font-size: 0.95rem;
   font-weight: 500;
-  padding: 0.4rem 1rem;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  padding: 0.6rem 1.2rem;
+  border: 2px solid white;
+  border-radius: 25px;
+  background: transparent !important;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.view-project:hover {
+  background: white !important;
+  color: black !important;
 }
 
 .project-info {
-  padding: 0.8rem;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.95) !important;
 }
 
 .project-info h5 {
-  font-size: 1rem;
-  margin-bottom: 0.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
 }
 
 .project-info p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
   font-size: 0.8rem;
-  opacity: 0.8;
-  margin-bottom: 0.5rem;
-}
-
-#projectsCarousel .carousel-inner {
-  padding: 1rem 0;
-}
-
-#projectsCarousel .carousel-control-prev,
-#projectsCarousel .carousel-control-next {
-  width: 32px;
-  height: 32px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5) !important;
-  border-radius: 50%;
-  opacity: 0.8;
-}
-
-.dark-mode #projectsCarousel .carousel-control-prev,
-.dark-mode #projectsCarousel .carousel-control-next {
-  background: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(0, 0, 0, 0.05);
+  color: #666;
+  font-weight: 500;
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .project-card {
-    width: 240px;
+    width: 280px;
   }
   
   .project-image {
-    height: 120px;
+    height: 160px;
   }
 
-  #projectsCarousel .carousel-control-prev {
-    left: -5x;
+  .project-info {
+    padding: 1rem;
   }
-  
-  #projectsCarousel .carousel-control-next {
-    right: -5px;
+
+  .project-info h5 {
+    font-size: 1.1rem;
+  }
+
+  .project-info p {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .tech-tag {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
   }
 }
+
+/* Dark mode adjustments */
+.dark-mode .project-card {
+  background: rgba(40, 40, 40, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .project-info {
+  background: rgba(40, 40, 40, 0.95) !important;
+}
+
+.dark-mode .project-info h5 {
+  color: #fff;
+}
+
+.dark-mode .project-info p {
+  color: #ccc;
+}
+
+.dark-mode .tech-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ddd;
+}
+
+/* ...rest of existing styles... */
 
 .project-card {
   width: 100%;
@@ -739,46 +771,6 @@ h4:hover i {
 
 /* ...existing styles... */
 
-.like-card:not(.liked) {
-  position: relative;
-  overflow: hidden;
-}
-
-.like-card:not(.liked):after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(233, 30, 99, 0.15);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  backdrop-filter: blur(2px);
-}
-
-.like-card:not(.liked):hover:after {
-  opacity: 1;
-}
-
-.like-card:not(.liked) {
-  cursor: pointer;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-  100% { transform: scale(1); }
-}
-
-/* ...rest of existing styles... */
-
-/* ...existing styles... */
-
 .stats-inner-card {
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -824,6 +816,211 @@ h4:hover i {
 
 .dark-mode .tech-card.mastered:before {
   background: rgba(255, 215, 0, 0.8);
+}
+
+/* ...rest of existing styles... */
+
+/* ...existing styles... */
+
+.like-card {
+  position: relative;
+  overflow: visible;
+}
+
+.like-card:not(.liked) {
+  cursor: pointer;
+  animation: gentle-pulse 2s infinite;
+}
+
+@keyframes gentle-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); box-shadow: 0 0 10px rgba(233, 30, 99, 0.3); }
+  100% { transform: scale(1); }
+}
+
+/* ...rest of existing styles... */
+
+/* Update Carousel Controls */
+#projectsCarousel {
+  position: relative;
+  padding: 0 50px; /* Increased padding to make room for controls */
+}
+
+#projectsCarousel .carousel-control-prev,
+#projectsCarousel .carousel-control-next {
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7) !important;
+  border-radius: 50%;
+  z-index: 10;
+  margin: 0 -10px;
+  opacity: 1;
+  position: absolute;
+}
+
+#projectsCarousel .carousel-control-prev {
+  left: 30px;
+}
+
+#projectsCarousel .carousel-control-next {
+  right: 30px;
+}
+
+#projectsCarousel .carousel-control-prev-icon,
+#projectsCarousel .carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.dark-mode #projectsCarousel .carousel-control-prev,
+.dark-mode #projectsCarousel .carousel-control-next {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  #projectsCarousel {
+    padding: 0 30px;
+  }
+
+  #projectsCarousel .carousel-control-prev {
+    left: 5px;
+  }
+  
+  #projectsCarousel .carousel-control-next {
+    right: 5px;
+  }
+}
+
+
+#projectsCarousel {
+  max-width: 1000px; 
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.project-card {
+  width: 450px; 
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+  height: 220px;
+  background: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.project-overlay {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.view-project {
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #000000 !important;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.view-project:hover {
+  background: #333333 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-info {
+  padding: 1.5rem;
+  background: #ffffff !important;
+}
+
+.project-info h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0.7rem;
+}
+
+.project-info p {
+  color: #333333;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  background: #f0f0f0;
+  color: #000000;
+  font-weight: 500;
+}
+
+.tech-tag img {
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  opacity: 0.8;
+}
+
+/* Dark mode */
+.dark-mode .project-card {
+  background: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .project-info {
+  background: #1a1a1a !important;
+}
+
+.dark-mode .project-info h5 {
+  color: #ffffff;
+}
+
+.dark-mode .project-info p {
+  color: #cccccc;
+}
+
+.dark-mode .tech-tag {
+  background: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark-mode .view-project {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.dark-mode .view-project:hover {
+  background: #cccccc !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  #projectsCarousel {
+    max-width: 320px;
+  }
+
+  .project-card {
+    width: 100%;
+  }
+  
+  .project-image {
+    height: 180px;
+  }
 }
 
 /* ...rest of existing styles... */
