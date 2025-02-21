@@ -103,7 +103,7 @@ const GetTechImage = ({ logo, size = null }) => {
         }
         case 'supabase': {
             return (
-                <img src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo.svg"
+                <img src="https://images.seeklogo.com/logo-png/43/1/supabase-logo-png_seeklogo-435677.png"
                     alt="Supabase Logo"
                     className="tech-logo"
                     title="Supabase"

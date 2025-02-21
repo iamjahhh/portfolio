@@ -24,9 +24,9 @@ const projects = [
   {
     id: 2,
     title: "Connexto",
-    description: "A global chat platform that connects students and professionals worldwide, enabling seamless communication, cultural exchange, and collaborative learning in real time.",
+    description: "A global chat platform for seamless communication and cultural exchange among students and professionals.",
     image: connexto,
-    tags: ["JavaScript", "Node.js", "React", "Next.js", "Tailwind", "HTML", "CSS"],
+    tags: ["JavaScript", "Node.js", "React", "Next.js", "Tailwind", "Supabase", "HTML", "CSS"],
     link: "https://connexto.vercel.app/"
   }
 ];
@@ -266,6 +266,10 @@ function CardContent() {
               <h6 className="text-muted mb-2">Other Technologies</h6>
               <div className="d-flex flex-wrap">
                 <div className="tech-card">
+                  {GetTechImage({ logo: 'next.js' })}
+                  <span>Next.js</span>
+                </div>
+                <div className="tech-card">
                   {GetTechImage({ logo: 'typescript' })}
                   <span>TypeScript</span>
                 </div>
@@ -308,6 +312,10 @@ function CardContent() {
                 <div className="tech-card">
                   {GetTechImage({ logo: 'supabase' })}
                   <span>Supabase</span>
+                </div>
+                <div className="tech-card">
+                  {GetTechImage({ logo: 'tailwind' })}
+                  <span>Tailwind</span>
                 </div>
               </div>
             </div>
