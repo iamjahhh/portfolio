@@ -15,7 +15,7 @@ const projects = [
   {
     id: 1,
     title: "EduArchive",
-    description: "Personal portfolio website built with React and Bootstrap",
+    description: "A platform dedicated to academic resources, helping students and educators access and manage educational materials efficiently.",
     image: eduArchive,
     tags: ["JavaScript", "Node.js", "React", "Bootstrap", "HTML", "CSS"],
     link: "https://eduarchive-v2.vercel.app/"
@@ -335,7 +335,7 @@ function CardContent() {
                               <p>{project.description}</p>
                               <div className="tech-tags">
                                 {project.tags.map((tag, i) => (
-                                  <span key={i} className="tech-tag">
+                                  <span key={i} className="tech-tag tech-tags-small">
                                     {GetTechImage({ logo: tag.toLowerCase() })}
                                     {tag}
                                   </span>
