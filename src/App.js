@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 
 import useDeviceDetection from './components/Device';
 import eduArchive from "./assets/eduarchive.png";
+import connexto from "./assets/connexto.png";
 import logo from "./assets/jah.jpg";
 
 const projects = [
@@ -19,6 +20,14 @@ const projects = [
     image: eduArchive,
     tags: ["JavaScript", "Node.js", "React", "Bootstrap", "HTML", "CSS"],
     link: "https://eduarchive-v2.vercel.app/"
+  },
+  {
+    id: 2,
+    title: "Connexto",
+    description: "A global chat platform that connects students and professionals worldwide, enabling seamless communication, cultural exchange, and collaborative learning in real time.",
+    image: connexto,
+    tags: ["JavaScript", "Node.js", "React", "Next.js", "Tailwind", "HTML", "CSS"],
+    link: "https://connexto.vercel.app/"
   }
 ];
 

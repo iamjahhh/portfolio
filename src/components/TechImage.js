@@ -103,10 +103,28 @@ const GetTechImage = ({ logo, size = null }) => {
         }
         case 'supabase': {
             return (
-                <img src="https://supabase.com/dashboard/img/supabase-logo.svg"
+                <img src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo.svg"
                     alt="Supabase Logo"
                     className="tech-logo"
                     title="Supabase"
+                    style={{ width: size == null ? "15px" : size, height: size == null ? "15px" : size }} />
+            );
+        }
+        case 'next.js': {
+            return (
+                <img src="https://assets.vercel.com/image/upload/v1662130559/nextjs/icon.png"
+                    alt="Next.js Logo"
+                    className="tech-logo"
+                    title="Next.js"
+                    style={{ width: size == null ? "15px" : size, height: size == null ? "15px" : size }} />
+            );
+        }
+        case 'tailwind': {
+            return (
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                    alt="Tailwind CSS Logo"
+                    className="tech-logo"
+                    title="Tailwind CSS"
                     style={{ width: size == null ? "15px" : size, height: size == null ? "15px" : size }} />
             );
         }
