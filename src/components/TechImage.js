@@ -112,7 +112,7 @@ const GetTechImage = ({ logo, size = null }) => {
         }
         case 'next.js': {
             return (
-                <img src="https://assets.vercel.com/image/upload/v1662130559/nextjs/icon.png"
+                <img src="https://cdn.worldvectorlogo.com/logos/next-js.svg"
                     alt="Next.js Logo"
                     className="tech-logo"
                     title="Next.js"
