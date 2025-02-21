@@ -103,7 +103,7 @@ const GetTechImage = ({ logo, size = null }) => {
         }
         case 'supabase': {
             return (
-                <img src="https://images.seeklogo.com/logo-png/43/1/supabase-logo-png_seeklogo-435677.png"
+                <img src="https://pipedream.com/s.v0/app_1dBhP3/logo/96"
                     alt="Supabase Logo"
                     className="tech-logo"
                     title="Supabase"
